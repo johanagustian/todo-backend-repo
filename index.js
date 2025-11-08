@@ -33,7 +33,7 @@ app.use("/api/route", verifyToken, taskRoute);
 
 app.get("/", (req, res) => {
   res.json({
-    message: `Welcome to the Todo List API. This server powers the backend of the Todo List application, handling data and logic. For a stylish and interactive frontend, please visit the corresponding Todo List frontend application. ${process.env.PRODUCTION_URL}`,
+    message: `Welcome to the Todo List API server`,
   });
 });
 
@@ -58,7 +58,7 @@ mongoose
   })
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error("Error connecting to MongoDB:", error));
-  
+
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, '0.0.0.0',() => {
   console.log(`Server started on port ${PORT}`);
