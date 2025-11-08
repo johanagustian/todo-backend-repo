@@ -1,13 +1,10 @@
-# File: .github/workflows/backend-ci.yml
-
-name: Backend API CI/CD
+# File: (Repo Backend)/.github/workflows/backend-ci.yml
+name: 1. BACKEND API SERVICE FLOW (Repo Tunggal)
 
 on:
   push:
     branches:
-      - main # Sesuaikan dengan nama branch utama Anda (misalnya: master)
-    paths:
-      - 'ToDo-React/back-end/**' # Hanya trigger jika file di folder backend berubah
+      - main 
 
 env:
   DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
@@ -30,7 +27,6 @@ jobs:
       - name: Build and Push Backend Image
         uses: docker/build-push-action@v5
         with:
-          context: ./ToDo-React/back-end
+          context: ./ # KONTEKS BARU: Ambil dari root repo backend
           push: true
-          # Tag: johanagustianpohan/todo-web-app-devops:backend-latest
           tags: ${{ env.DOCKER_USER }}/todo-web-app-devops:backend-latest
