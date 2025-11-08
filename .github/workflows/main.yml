@@ -1,0 +1,32 @@
+# File: (Repo Backend)/.github/workflows/backend-ci.yml
+name: 1. BACKEND API SERVICE FLOW
+
+on:
+  push:
+    branches:
+      - main 
+
+env:
+  DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
+  
+jobs:
+  build-and-push-backend:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ env.DOCKER_USER }}
+          password: ${{ env.DOCKER_PASS }}
+
+      - name: Build and Push Backend Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./ # KONTEKS BARU: Ambil dari root repo backend
+          push: true
+          tags: ${{ env.DOCKER_USER }}/todo-web-app-devops:backend-latest
