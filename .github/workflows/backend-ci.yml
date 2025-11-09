@@ -1,5 +1,4 @@
-# File: (Repo Backend)/.github/workflows/backend-ci.yml
-name: 1. BACKEND API SERVICE FLOW (Repo Tunggal)
+name: BACKEND API SERVICE FLOW
 
 on:
   push:
@@ -27,6 +26,6 @@ jobs:
       - name: Build and Push Backend Image
         uses: docker/build-push-action@v5
         with:
-          context: ./ # KONTEKS BARU: Ambil dari root repo backend
+          context: ./
           push: true
           tags: ${{ env.DOCKER_USER }}/todo-web-app-devops:backend-latest
