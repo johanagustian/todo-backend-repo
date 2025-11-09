@@ -54,8 +54,9 @@ mongoose
   .connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    // Baris di bawah ini adalah perbaikan untuk timeout koneksi di Docker
-    serverSelectionTimeoutMS: 5000, // Tambahkan timeout yang jelas (5 detik)
+    // TAMBAHKAN KEDUA BARIS INI UNTUK MENJAMIN KONEKSI DI DOCKER
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
   })
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error("Error connecting to MongoDB:", error));
