@@ -16,6 +16,7 @@ const ALLOWED_ORIGINS = [
   process.env.DEVELOPMENT_URL,
   process.env.PRODUCTION_URL,
   "http://localhost:5173", // Ditambahkan untuk Vite dev server
+  "http://localhost:3000",
 ];
 
 const corsOptions = {
@@ -33,7 +34,7 @@ app.use("/api/route", verifyToken, taskRoute);
 
 app.get("/", (req, res) => {
   res.json({
-    message: `Selamat Datang Di Api Server todo web app`,
+    message: `Welcome to the Todo List API server`,
   });
 });
 
