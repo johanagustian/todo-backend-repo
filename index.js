@@ -34,7 +34,7 @@ app.use("/api/route", verifyToken, taskRoute);
 
 app.get("/", (req, res) => {
   res.json({
-    message: `Selamat datang di API server`,
+    message: `Welcome to the Todo List API server`,
   });
 });
 
