@@ -34,7 +34,7 @@ app.use("/api/route", verifyToken, taskRoute);
 
 app.get("/", (req, res) => {
   res.json({
-    message: `Welcome to API server`,
+    message: `Selamat datang API server`,
   });
 });
 
